@@ -1,7 +1,7 @@
-import { Movie, MovieFromApi } from '../models/movies.model';
+import { Movie, MovieFromApi } from './movies.model';
 
 export default class MoviesMappers {
-  public static mapMoviesFromApi(moviesFromApi: MovieFromApi[]): Movie[] {
+  mapMoviesFromApi(moviesFromApi: MovieFromApi[]): Movie[] {
     return moviesFromApi.map((movieFromApi) => {
       return {
         id: movieFromApi.id,
