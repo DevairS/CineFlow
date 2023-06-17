@@ -1,7 +1,7 @@
-import { clientApi } from "../config";
+import { clientApi } from '../config';
 
 export const getAll = async () => {
-  const data = await clientApi.get("movies", {
+  const data = await clientApi.get('movies', {
     next: {
       revalidate: 30,
     },

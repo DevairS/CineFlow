@@ -1,1 +1,1 @@
-export { default as serverApi } from './axios.config'
+export { default as serverApi } from './axios.config';

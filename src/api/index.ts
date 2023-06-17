@@ -1,1 +1,1 @@
-export * as moviesApi from './movies'
+export * as moviesApi from './movies';

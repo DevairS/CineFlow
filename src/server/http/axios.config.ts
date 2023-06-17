@@ -1,5 +1,4 @@
-import axios from 'axios'
-
+import axios from 'axios';
 
 const serverApi = axios.create({
   baseURL: process.env.BASE_URL,
@@ -7,6 +6,6 @@ const serverApi = axios.create({
   headers: {
     Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
   },
-})
+});
 
-export default serverApi
+export default serverApi;

@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import { moviesApi } from '@api'
+import Image from 'next/image';
+import styles from './page.module.css';
+import { moviesApi } from '@api';
 
 export default async function Home() {
   // await moviesApi.getAll();
-  const movie = await moviesApi.getOne(298618)
-  console.log(movie)
+  const movie = await moviesApi.getOne(298618);
+  console.log(movie);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -95,5 +95,5 @@ export default async function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
