@@ -60,22 +60,6 @@
   font-family: var(--font-lato);
 }
 
-.wrapper-details-tags {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.tag {
-  border-radius: 24px;
-  border: 1px solid var(--color-primary);
-  background-color: var(--color-background);
-  padding: 0.1rem 0.6rem;
-  margin-right: 8px;
-}
-
 .details-vote {
   display: flex;
   align-items: center;
