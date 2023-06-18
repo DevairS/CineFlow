@@ -12,10 +12,9 @@ export default class MoviesMappers {
         id: movieFromApi.id,
         title: movieFromApi.title,
         description: movieFromApi.overview,
-        posterPath: movieFromApi.poster_path,
+        path: movieFromApi.poster_path,
         releaseDate: this.convertDateToCorrectFormat(movieFromApi.release_date),
-        voteAverage: movieFromApi.vote_average,
-        voteCount: movieFromApi.vote_count,
+        rating: `${movieFromApi.vote_average * 10}%`,
         genreIds: movieFromApi.genre_ids,
       };
     });

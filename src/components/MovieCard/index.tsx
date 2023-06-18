@@ -1,8 +1,8 @@
 import { Genre, Movie } from '@server/models';
 import styles from './styles.module.css';
-import Image from 'next/image';
 import { FC } from 'react';
 import MovieGenres from '../MovieGenres';
+import ImageComponent from '../Image';
 
 type Props = {
   movie: Movie;
@@ -10,16 +10,12 @@ type Props = {
 };
 
 const MovieCard: FC<Props> = ({ movie, genres }) => {
-  const loaderImage = ({ src }: { src: string }) => {
-    return `https://image.tmdb.org/t/p/original${src}`;
-  };
   return (
     <div className={styles['wrapper']}>
       <div className={styles['wrapper-imagem']}>
-        <Image
-          loader={loaderImage}
-          src={movie.posterPath}
-          alt='filme'
+        <ImageComponent
+          src={`https://image.tmdb.org/t/p/w500${movie.path}`}
+          alt={movie.title}
           width={180}
           height={280}
         />
@@ -28,7 +24,7 @@ const MovieCard: FC<Props> = ({ movie, genres }) => {
         <div className={styles['wrapper-details-header']}>
           <div className={styles['details-vote']}>
             <span className={styles['details-vote-number']}>
-              {movie.voteAverage * 10}%
+              {movie.rating}
             </span>
           </div>
           <div className={styles['wrapper-details-content']}>

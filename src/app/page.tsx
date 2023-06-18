@@ -1,5 +1,5 @@
 import { moviesApi } from '@api';
-import HomePage from '../layout/home';
+import HomePage from '@layouts/home';
 
 export default async function Home() {
   const movies = await moviesApi.getAll();

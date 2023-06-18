@@ -1,4 +1,3 @@
-'use client';
 import { Genre, Movie } from '@server/models';
 import styles from './styles.module.css';
 import { MovieCard, SearchMovies } from '@components';

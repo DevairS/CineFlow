@@ -19,10 +19,9 @@ export type Movie = {
   id: number;
   title: string;
   description: string;
-  posterPath: string;
+  path: string;
   releaseDate: string;
-  voteAverage: number;
-  voteCount: number;
+  rating: string;
   genreIds: number[];
 };
 
