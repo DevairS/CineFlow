@@ -18,8 +18,15 @@ export interface MovieFromApi {
 export type Movie = {
   id: number;
   title: string;
+  description: string;
   posterPath: string;
   releaseDate: string;
   voteAverage: number;
   voteCount: number;
+  genreIds: number[];
+};
+
+export type Genre = {
+  id: number;
+  name: string;
 };

@@ -11,10 +11,11 @@ export const getAll = async (): Promise<Movie[]> => {
 };
 
 export const getOne = async (id: number) => {
-  const data = await clientApi.get(`movies/${id}`, {
-    next: {
-      revalidate: 30,
-    },
-  });
+  const data = await clientApi.get(`movies/${id}`);
   return data;
+};
+
+export const getGenres = async () => {
+  const data = await clientApi.get('movies/genres');
+  return moviesMappers.mapGenresFromApi(data);
 };

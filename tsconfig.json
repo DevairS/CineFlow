@@ -21,7 +21,7 @@
     ],
     "paths": {
       "@api": ["./src/api"],
-      "@components/*": ["./src/components/*"],
+      "@components": ["./src/components"],
       "@app/*": ["./src/app/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@server/*": ["./src/server/*"],
