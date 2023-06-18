@@ -47,6 +47,7 @@
 }
 
 .wrapper-details-texts {
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 16px;
@@ -72,6 +73,7 @@
   position: relative;
   top: 30px;
   margin: 0 12px;
+  box-shadow: 0 0 0 3px var(--color-primary);
 }
 
 .details-vote-number {

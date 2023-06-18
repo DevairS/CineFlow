@@ -1,13 +1,22 @@
-import { Movie, moviesMappers } from '@server/models';
+import { Movie, MoviesInfos, moviesMappers } from '@server/models';
 import { clientApi } from '../config';
 
-export const getAll = async (): Promise<Movie[]> => {
-  const data = await clientApi.get('movies', {
+export const getAll = async (
+  page: string
+): Promise<{ infos: MoviesInfos; movies: Movie[] }> => {
+  const data = await clientApi.get(`movies?page=${page}`, {
     next: {
       revalidate: 30,
     },
   });
-  return moviesMappers.mapMoviesFromApi(data.results);
+  const infos = {
+    page: data.page,
+    totalPages: data.total_pages,
+    totalResults: data.total_results,
+  };
+  const movies = moviesMappers.mapMoviesFromApi(data.results);
+
+  return { infos, movies };
 };
 
 export const getOne = async (id: number) => {

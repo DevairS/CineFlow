@@ -1,13 +1,15 @@
-import { Genre, Movie } from '@server/models';
+import { Genre, Movie, MoviesInfos } from '@server/models';
 import styles from './styles.module.css';
 import { MovieCard, SearchMovies } from '@components';
+import Pagination from './pagination';
 
 interface Props {
   movies: Movie[];
   genres: Genre[];
+  infos: MoviesInfos;
 }
 
-export default function HomePage({ movies, genres }: Props) {
+export default function HomePage({ movies, genres, infos }: Props) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['wrapper-content']}>
@@ -25,6 +27,7 @@ export default function HomePage({ movies, genres }: Props) {
             />
           ))}
         </div>
+        <Pagination infos={infos} />
       </div>
     </div>
   );
