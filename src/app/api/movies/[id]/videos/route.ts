@@ -6,6 +6,6 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const { id } = params;
-  const { data } = await serverApi.get(`movie/${id}?language=pt-BR`);
-  return NextResponse.json(data);
+  const { data } = await serverApi.get(`movie/${id}/videos?language=pt-BR`);
+  return NextResponse.json(data.results);
 }

@@ -8,8 +8,8 @@ export default async function Home({
 }) {
   const { page, query }: { page?: string; query?: string } = searchParams ?? {};
 
-  const data = await moviesApi.getAll(page, query);
   const genres = await moviesApi.getGenres();
+  const data = await moviesApi.getAll(page, query);
 
   return (
     <HomePage

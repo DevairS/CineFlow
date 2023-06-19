@@ -1,4 +1,10 @@
-import { Movie, MoviesInfos, moviesMappers } from '@server/models';
+import {
+  Genre,
+  Movie,
+  MovieDetails,
+  MoviesInfos,
+  moviesMappers,
+} from '@server/models';
 import { clientApi } from '../config';
 
 export const getAll = async (
@@ -23,12 +29,19 @@ export const getAll = async (
   return { infos, movies };
 };
 
-export const getOne = async (id: number) => {
+export const getOne = async (id: string): Promise<MovieDetails> => {
   const data = await clientApi.get(`movies/${id}`);
-  return data;
+  return moviesMappers.mapMovieDetailsFromApi(data);
 };
 
-export const getGenres = async () => {
+export const getGenres = async (): Promise<Genre[]> => {
   const data = await clientApi.get('movies/genres');
   return moviesMappers.mapGenresFromApi(data);
+};
+
+export const getVideosByMovieId = async (
+  id: string
+): Promise<string | undefined> => {
+  const data = await clientApi.get(`movies/${id}/videos`);
+  return moviesMappers.mapMovieVideoFromApi(data);
 };

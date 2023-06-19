@@ -10,3 +10,19 @@ export const convertImagePathToURL = (path: string): string => {
 export const convertRantingToPorcentage = (rating: number): string => {
   return `${Math.round(rating) * 10}%`;
 };
+
+export const convertToHourMinute = (value: number): string => {
+  const hours = Math.floor(value / 60);
+  const minutes = value % 60;
+  const hourText = hours > 0 ? hours + 'h' : '';
+  const minuteText = minutes > 0 ? minutes + 'min' : '';
+  return hourText + ' ' + minuteText;
+};
+
+export const convertToDollarFormat = (value: number): string => {
+  const formattedValue = value.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return '$' + formattedValue;
+};

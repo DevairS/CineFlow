@@ -1,10 +1,12 @@
 'use client';
 import { FC, KeyboardEvent } from 'react';
 import styles from './styles.module.css';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const SearchMovies: FC = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query');
 
   const handlePressEnter = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -18,6 +20,7 @@ const SearchMovies: FC = () => {
       placeholder='Busque um filme por nome, ano ou gênero...'
       className={styles.input}
       onKeyUp={handlePressEnter}
+      defaultValue={query || ''}
     />
   );
 };

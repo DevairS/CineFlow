@@ -1,70 +1,91 @@
 import { FC } from 'react';
-import { ImageComponent, MovieGenres, MovieRating } from '@components';
+import {
+  ImageComponent,
+  MovieGenres,
+  MovieRating,
+  VideoPlayer,
+} from '@components';
 import styles from './styles.module.css';
+import { MovieDetails } from '@server/models';
 
-const Movie: FC = () => {
+type Props = {
+  movie: MovieDetails;
+  video?: string;
+};
+
+const Movie: FC<Props> = ({ movie, video }) => {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['wrapper-details']}>
         <header className={styles['wrapper-header']}>
-          <span className={styles['movie-title']}>Thor: Ragnorok</span>
-          <span className={styles['movie-release-date']}>25/10/2017</span>
+          <span className={styles['movie-title']}>{movie.title}</span>
+          <span className={styles['movie-release-date']}>
+            {movie.releaseDate}
+          </span>
         </header>
         <div className={styles['wrapper-details-content']}>
           <div className={styles['wrapper-sections']}>
             <div className={styles['wrapper-section']}>
               <span className={styles['section-title']}>Sinopse</span>
               <p className={styles['section-description']}>
-                Against his father Odins will, The Mighty Thor - a powerful but
-                arrogant warrior god - recklessly reignites an ancient war. Thor
-                is cast down to Earth and forced to live among humans as
-                punishment. Once here, Thor learns what it takes to be a true
-                hero when the most dangerous villain of his world sends the
-                darkest forces of Asgard to invade Earth.
+                {movie.description}
               </p>
             </div>
             <div className={styles['wrapper-section']}>
               <span className={styles['section-title']}>Informações</span>
               <ul className={styles['section-list']}>
                 <li className={styles['section-list-item']}>
-                  <p className={styles['section-title']}>Estreia</p>
-                  <p className={styles['section-description']}>25/10/2017</p>
+                  <p className={styles['section-title']}>Situação</p>
+                  <p className={styles['section-description']}>
+                    {movie.status === 'Released' ? 'Lançado' : 'Produção'}
+                  </p>
                 </li>
                 <li className={styles['section-list-item']}>
-                  <p className={styles['section-title']}>Duração</p>
+                  <p className={styles['section-title']}>Idioma</p>
                   <p className={styles['section-description']}>2h 10m</p>
                 </li>
                 <li className={styles['section-list-item']}>
-                  <p className={styles['section-title']}>Gênero</p>
-                  <p className={styles['section-description']}>ação</p>
+                  <p className={styles['section-title']}>Duração</p>
+                  <p className={styles['section-description']}>
+                    {movie.duration}
+                  </p>
                 </li>
                 <li className={styles['section-list-item']}>
-                  <p className={styles['section-title']}>Classificação</p>
-                  <p className={styles['section-description']}>12 anos</p>
+                  <p className={styles['section-title']}>Orçamento</p>
+                  <p className={styles['section-description']}>
+                    {movie.budget}
+                  </p>
+                </li>
+                <li className={styles['section-list-item']}>
+                  <p className={styles['section-title']}>Receita</p>
+                  <p className={styles['section-description']}>
+                    {movie.revenue}
+                  </p>
+                </li>
+                <li className={styles['section-list-item']}>
+                  <p className={styles['section-title']}>Lucro</p>
+                  <p className={styles['section-description']}>
+                    {movie.profit}
+                  </p>
                 </li>
               </ul>
             </div>
             <div className={styles['wrapper-details-bottom']}>
               <div className={styles['details-bottom']}>
-                <MovieGenres
-                  genres={[
-                    { id: 1, name: 'Ação' },
-                    { id: 1, name: 'Ação' },
-                    { id: 1, name: 'Ação' },
-                  ]}
-                />
-                <MovieRating rating='75%' size='100px' />
+                <MovieGenres genres={movie.genres} />
+                <MovieRating rating={movie.rating} size='100px' />
               </div>
             </div>
           </div>
           <ImageComponent
-            src='https://image.tmdb.org/t/p/w500/1wOu8rdvPxU1ObHi20VcRhfNpbo.jpg'
-            alt='Thor: Ragnorok'
+            src={movie.path}
+            alt={movie.title}
             width={280}
             height={390}
           />
         </div>
       </div>
+      {video && <VideoPlayer src={video} height='500px' />}
     </div>
   );
 };

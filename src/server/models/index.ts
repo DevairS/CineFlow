@@ -5,5 +5,8 @@ export type {
   MovieFromApi,
   Genre,
   MoviesInfos,
+  MovieDetailsFromApi,
+  MovieDetails,
+  VideoFromApi,
 } from './movies/movies.model';
 export const moviesMappers = new MoviesMappers();

@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import styles from './styles.module.css';
+import { FC } from 'react';
 import Link from 'next/link';
 import { MoviesInfos } from '@server/models';
 
@@ -36,12 +36,19 @@ const Pagination: FC<Props> = ({ infos, query }) => {
               : styles['button-pagination']
           }
         >
-          <Link
-            className={styles['button-text']}
-            href={`/?page=${page}${query ? `&query=${query}` : ''}`}
-          >
-            {page}
-          </Link>
+          {page === currentPage ? (
+            <span className={styles['button-text']}>{page}</span>
+          ) : (
+            <Link
+              className={styles['button-text']}
+              href={{
+                pathname: '/',
+                query: { page: page, query: query },
+              }}
+            >
+              {page}
+            </Link>
+          )}
         </div>
       ))}
     </div>

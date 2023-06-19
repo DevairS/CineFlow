@@ -1,5 +1,6 @@
-import { Genre, Movie, MoviesInfos } from '@server/models';
 import styles from './styles.module.css';
+import Link from 'next/link';
+import { Genre, Movie, MoviesInfos } from '@server/models';
 import { MovieCard, SearchMovies } from '@components';
 import Pagination from './pagination';
 
@@ -19,13 +20,18 @@ export default function HomePage({ movies, genres, infos, query }: Props) {
         </div>
         <div className={styles['wrapper-cards']}>
           {movies.map((movie) => (
-            <MovieCard
+            <Link
+              href={`/movie/${movie.id}`}
               key={movie.id}
-              movie={movie}
-              genres={genres.filter((genre) =>
-                movie.genreIds.includes(genre.id)
-              )}
-            />
+              style={{ textDecoration: 'none' }}
+            >
+              <MovieCard
+                movie={movie}
+                genres={genres.filter((genre) =>
+                  movie.genreIds.includes(genre.id)
+                )}
+              />
+            </Link>
           ))}
         </div>
         <Pagination infos={infos} query={query} />
