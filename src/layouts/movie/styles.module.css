@@ -1,0 +1,101 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  padding-top: 50px;
+}
+
+.wrapper-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: var(--color-surface-dark);
+  padding: 0 32px;
+}
+
+.wrapper-header > .movie-title {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.wrapper-header > .movie-release-date {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+}
+
+.wrapper-details-content {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-surface);
+  padding-left: 32px;
+}
+
+.wrapper-sections {
+  display: flex;
+  flex-direction: column;
+  margin-right: 32px;
+}
+
+.wrapper-section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-secondary);
+  margin-bottom: 16px;
+  font-family: var(--font-lato);
+}
+
+.section-list {
+  display: flex;
+  width: 100%;
+}
+
+.section-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding-right: 16px;
+}
+
+.section-list-item > .section-title {
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.section-list-item > .section-description {
+  font-size: 0.8rem;
+}
+
+.section-description {
+  font-family: var(--font-lato);
+}
+
+.wrapper-details-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 16px;
+}
+
+.details-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
