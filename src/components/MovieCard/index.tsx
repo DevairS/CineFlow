@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import { FC } from 'react';
 import MovieGenres from '../MovieGenres';
 import ImageComponent from '../Image';
+import MovieRating from '../MovieRating';
 
 type Props = {
   movie: Movie;
@@ -12,20 +13,16 @@ type Props = {
 const MovieCard: FC<Props> = ({ movie, genres }) => {
   return (
     <div className={styles['wrapper']}>
-      <div className={styles['wrapper-imagem']}>
-        <ImageComponent
-          src={movie.path}
-          alt={movie.title}
-          width={180}
-          height={280}
-        />
-      </div>
+      <ImageComponent
+        src={movie.path}
+        alt={movie.title}
+        width={180}
+        height={280}
+      />
       <div className={styles['wrapper-details']}>
         <div className={styles['wrapper-details-header']}>
           <div className={styles['details-vote']}>
-            <span className={styles['details-vote-number']}>
-              {movie.rating}
-            </span>
+            <MovieRating rating={movie.rating} size='70px' />
           </div>
           <div className={styles['wrapper-details-content']}>
             <span className={styles['details-title']}>{movie.title}</span>
