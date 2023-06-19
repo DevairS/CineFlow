@@ -6,10 +6,17 @@ export default async function Home({
 }: {
   searchParams?: { [key: string]: string };
 }) {
-  const { page } = searchParams || { page: '1' };
+  const { page, query }: { page?: string; query?: string } = searchParams ?? {};
 
-  const data = await moviesApi.getAll(page);
+  const data = await moviesApi.getAll(page, query);
   const genres = await moviesApi.getGenres();
 
-  return <HomePage movies={data.movies} genres={genres} infos={data.infos} />;
+  return (
+    <HomePage
+      movies={data.movies}
+      genres={genres}
+      infos={data.infos}
+      query={query}
+    />
+  );
 }

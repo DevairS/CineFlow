@@ -2,13 +2,17 @@ import { Movie, MoviesInfos, moviesMappers } from '@server/models';
 import { clientApi } from '../config';
 
 export const getAll = async (
-  page: string
+  page: string,
+  query: string
 ): Promise<{ infos: MoviesInfos; movies: Movie[] }> => {
-  const data = await clientApi.get(`movies?page=${page}`, {
-    next: {
-      revalidate: 30,
-    },
-  });
+  const data = await clientApi.get(
+    `movies?page=${page}${query ? `&query=${query}` : ''}`,
+    {
+      next: {
+        revalidate: 30,
+      },
+    }
+  );
   const infos = {
     page: data.page,
     totalPages: data.total_pages,

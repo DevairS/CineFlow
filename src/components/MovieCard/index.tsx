@@ -14,7 +14,7 @@ const MovieCard: FC<Props> = ({ movie, genres }) => {
     <div className={styles['wrapper']}>
       <div className={styles['wrapper-imagem']}>
         <ImageComponent
-          src={`https://image.tmdb.org/t/p/w500${movie.path}`}
+          src={movie.path}
           alt={movie.title}
           width={180}
           height={280}

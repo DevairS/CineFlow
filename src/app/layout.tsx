@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './globals.css';
 import styles from './layout.module.css';
 import { Lato, Abel } from 'next/font/google';
@@ -33,7 +34,9 @@ export default function RootLayout({
       <body className={`${lato.variable} ${abel.variable}`}>
         <main>
           <header className={styles['header']}>
-            <h1 className={styles['header-title']}>Movies</h1>
+            <Link href='/' className={styles['header-title']}>
+              Movies
+            </Link>
           </header>
           {children}
         </main>

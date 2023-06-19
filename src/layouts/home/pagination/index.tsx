@@ -5,9 +5,10 @@ import { MoviesInfos } from '@server/models';
 
 type Props = {
   infos: MoviesInfos;
+  query?: string;
 };
 
-const Pagination: FC<Props> = ({ infos }) => {
+const Pagination: FC<Props> = ({ infos, query }) => {
   const pages = [];
   const numPagesNavigation = 5;
   const currentPage = infos.page;
@@ -35,7 +36,10 @@ const Pagination: FC<Props> = ({ infos }) => {
               : styles['button-pagination']
           }
         >
-          <Link className={styles['button-text']} href={`/?page=${page}`}>
+          <Link
+            className={styles['button-text']}
+            href={`/?page=${page}${query ? `&query=${query}` : ''}`}
+          >
             {page}
           </Link>
         </div>

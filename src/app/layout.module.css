@@ -10,4 +10,5 @@
 .header-title {
   color: var(--color-secondary);
   font-size: 2rem;
+  text-decoration: none;
 }

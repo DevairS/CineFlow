@@ -39,6 +39,7 @@
 .details-title {
   color: var(--color-secondary);
   font-size: 2rem;
+  line-height: 35px;
 }
 
 .details-release-date {

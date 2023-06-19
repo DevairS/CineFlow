@@ -7,9 +7,10 @@ interface Props {
   movies: Movie[];
   genres: Genre[];
   infos: MoviesInfos;
+  query?: string;
 }
 
-export default function HomePage({ movies, genres, infos }: Props) {
+export default function HomePage({ movies, genres, infos, query }: Props) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['wrapper-content']}>
@@ -27,7 +28,7 @@ export default function HomePage({ movies, genres, infos }: Props) {
             />
           ))}
         </div>
-        <Pagination infos={infos} />
+        <Pagination infos={infos} query={query} />
       </div>
     </div>
   );
