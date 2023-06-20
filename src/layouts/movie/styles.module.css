@@ -190,11 +190,13 @@
   .wrapper-section-with-image {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
   .wrapper-image-section {
-    display: flex;
+    display: block;
     min-width: 200px;
+    max-height: 300px;
   }
 
   .wrapper-details-bottom {
