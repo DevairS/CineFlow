@@ -1,6 +1,10 @@
 import { moviesApi } from '@api';
 import HomePage from '@layouts/home';
 
+export const metadata = {
+  title: 'Movies',
+};
+
 export default async function Home({
   searchParams,
 }: {
