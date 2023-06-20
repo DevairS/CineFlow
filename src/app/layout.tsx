@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${lato.variable} ${abel.variable}`}>
-        <main>
+        <main className={styles['wrapper-main']}>
           <header className={styles['header']}>
             <Link href='/' className={styles['header-title']}>
               Movies

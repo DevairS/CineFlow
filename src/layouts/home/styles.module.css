@@ -1,6 +1,9 @@
 .wrapper {
-  display: flex;
   padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .wrapper-content {

@@ -41,8 +41,8 @@ export default function HomePage({
             </Link>
           ))}
         </div>
-        <Pagination totalPages={totalPages} query={query} page={page} />
       </div>
+      <Pagination totalPages={totalPages} query={query} page={page} />
     </div>
   );
 }
