@@ -38,13 +38,3 @@
     gap: 16px;
   }
 }
-
-@media only screen and (max-width: 480px) {
-  .wrapper {
-    padding: 0;
-  }
-
-  .wrapper-cards {
-    gap: 4px;
-  }
-}
