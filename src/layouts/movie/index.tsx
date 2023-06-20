@@ -25,11 +25,28 @@ const Movie: FC<Props> = ({ movie, video }) => {
         </header>
         <div className={styles['wrapper-details-content']}>
           <div className={styles['wrapper-sections']}>
-            <div className={styles['wrapper-section']}>
-              <span className={styles['section-title']}>Sinopse</span>
-              <p className={styles['section-description']}>
-                {movie.description}
-              </p>
+            <div
+              className={
+                styles['wrapper-section'] +
+                ' ' +
+                styles['wrapper-section-with-image']
+              }
+            >
+              <div>
+                <div className={styles['section-title']}>Sinopse</div>
+                <p className={styles['section-description']}>
+                  {movie.description}
+                </p>
+              </div>
+              <div className={styles['wrapper-image-section']}>
+                <ImageComponent
+                  src={movie.path}
+                  alt={movie.title}
+                  width={280}
+                  height={390}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </div>
             </div>
             <div className={styles['wrapper-section']}>
               <span className={styles['section-title']}>Informações</span>
@@ -73,16 +90,21 @@ const Movie: FC<Props> = ({ movie, video }) => {
             <div className={styles['wrapper-details-bottom']}>
               <div className={styles['details-bottom']}>
                 <MovieGenres genres={movie.genres} />
-                <MovieRating rating={movie.rating} size='100px' />
+                <MovieRating
+                  rating={movie.rating}
+                  className={styles['rating']}
+                />
               </div>
             </div>
           </div>
-          <ImageComponent
-            src={movie.path}
-            alt={movie.title}
-            width={280}
-            height={390}
-          />
+          <div className={styles['wrapper-image']}>
+            <ImageComponent
+              src={movie.path}
+              alt={movie.title}
+              width={280}
+              height={390}
+            />
+          </div>
         </div>
       </div>
       {video && <VideoPlayer src={video} height='500px' />}

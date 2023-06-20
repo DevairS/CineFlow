@@ -3,19 +3,13 @@ import styles from './styles.module.css';
 
 type Props = {
   rating: string;
-  size?: string;
-  fontSize?: string;
+  className?: string;
 };
 
-const MovieRating: FC<Props> = ({ rating, size, fontSize }) => {
+const MovieRating: FC<Props> = ({ rating, className }) => {
   return (
-    <div
-      className={styles['details-vote']}
-      style={{ width: size, height: size, minWidth: size, minHeight: size }}
-    >
-      <span className={styles['details-vote-number']} style={{ fontSize }}>
-        {rating}
-      </span>
+    <div className={styles['details-vote'] + ' ' + className}>
+      <span className={styles['details-vote-number']}>{rating}</span>
     </div>
   );
 };

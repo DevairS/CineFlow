@@ -13,16 +13,19 @@ type Props = {
 const MovieCard: FC<Props> = ({ movie, genres }) => {
   return (
     <div className={styles['wrapper']}>
-      <ImageComponent
-        src={movie.path}
-        alt={movie.title}
-        width={180}
-        height={280}
-      />
+      <div className={styles['wrapper-image']}>
+        <ImageComponent
+          src={movie.path}
+          alt={movie.title}
+          width={180}
+          height={280}
+          style={{ width: '100%', height: '100%' }}
+        />
+      </div>
       <div className={styles['wrapper-details']}>
         <div className={styles['wrapper-details-header']}>
           <div className={styles['details-vote']}>
-            <MovieRating rating={movie.rating} size='70px' />
+            <MovieRating rating={movie.rating} />
           </div>
           <div className={styles['wrapper-details-content']}>
             <span className={styles['details-title']}>{movie.title}</span>

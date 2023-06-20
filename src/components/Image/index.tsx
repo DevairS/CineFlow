@@ -6,11 +6,19 @@ type Props = {
   alt: string;
   width: number;
   height: number;
+  style?: { [key: string]: string };
 };
 
-const ImageComponent: FC<Props> = ({ src, alt, width, height }) => {
+const ImageComponent: FC<Props> = ({ src, alt, width, height, style }) => {
   return (
-    <Image src={src} alt={alt} width={width} height={height} loading='lazy' />
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading='lazy'
+      style={style}
+    />
   );
 };
 

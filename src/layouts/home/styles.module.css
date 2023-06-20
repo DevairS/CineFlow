@@ -10,11 +10,41 @@
 
 .wrapper-search {
   display: flex;
-  padding: 50px 0;
+  padding: 48px 0;
 }
 
 .wrapper-cards {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    padding: 0 8px;
+  }
+
+  .wrapper-search {
+    padding: 28px 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper-search {
+    padding: 24px 0;
+  }
+
+  .wrapper-cards {
+    gap: 16px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    padding: 0;
+  }
+
+  .wrapper-cards {
+    gap: 4px;
+  }
 }

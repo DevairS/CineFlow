@@ -7,7 +7,6 @@
 }
 
 .button-pagination {
-  font-size: 1.6rem;
   margin: 0 8px;
   background-color: transparent;
   cursor: pointer;
@@ -41,4 +40,26 @@
 
 .button-text:hover {
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper-pagination {
+    margin-top: 8px;
+  }
+
+  .button-pagination {
+    margin: 0 4px;
+  }
+
+  .button-active {
+    min-width: 40px;
+    min-height: 40px;
+    border-width: 2px;
+    box-shadow: 0 0 0 2px var(--color-primary);
+    font-size: 1rem;
+  }
+
+  .button-text {
+    font-size: 1rem;
+  }
 }
