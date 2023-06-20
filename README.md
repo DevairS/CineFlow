@@ -25,7 +25,11 @@ Entre as tecnologias utilizadas, destaca-se:
 - [Vercel](https://vercel.com/docs)
 - [Vitest](https://vitest.dev/)
 
+No projeto não foi utilizado nenhum gerenciador de estado global. Mas gostária de destacar dominio com contextAPI e Mobx
+
+Nesse projeto tenho um exemplo de uso https://github.com/DevairS/OnWeather
 <br>
+
 ## 💻 Instalação
 
 ```bash
@@ -59,5 +63,7 @@ $ yarn dev
 Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
 
 ---
+
+Projeto de desafio tecnico web da [Cubos](https://cubos.io/)
 
 Feito com ❤ &nbsp;by Devair Silva.
