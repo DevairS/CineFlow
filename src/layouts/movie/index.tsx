@@ -107,7 +107,7 @@ const Movie: FC<Props> = ({ movie, video }) => {
           </div>
         </div>
       </div>
-      {video && <VideoPlayer src={video} height='500px' />}
+      {video && <VideoPlayer src={video} className={styles['youtube-video']} />}
     </div>
   );
 };
