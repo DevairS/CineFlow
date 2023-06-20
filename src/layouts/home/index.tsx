@@ -26,6 +26,11 @@ export default function HomePage({
           <SearchMovies />
         </div>
         <div className={styles['wrapper-cards']}>
+          {query && movies.length === 0 && (
+            <h1
+              className={styles['message-not-movies']}
+            >{`Não encontramos resultados para "${query}"`}</h1>
+          )}
           {movies.map((movie) => (
             <Link
               href={`/movie/${movie.id}`}
