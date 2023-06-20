@@ -1,16 +1,15 @@
 import {
   Genre,
-  Movie,
   MovieDetails,
-  MoviesInfos,
+  PaginationMovie,
   moviesMappers,
 } from '@server/models';
 import { clientApi } from '../config';
 
 export const getAll = async (
-  page: string,
+  page = '1',
   query: string
-): Promise<{ infos: MoviesInfos; movies: Movie[] }> => {
+): Promise<PaginationMovie> => {
   const data = await clientApi.get(
     `movies?page=${page}${query ? `&query=${query}` : ''}`,
     {
@@ -19,14 +18,7 @@ export const getAll = async (
       },
     }
   );
-  const infos = {
-    page: data.page,
-    totalPages: data.total_pages,
-    totalResults: data.total_results,
-  };
-  const movies = moviesMappers.mapMoviesFromApi(data.results);
-
-  return { infos, movies };
+  return moviesMappers.mapMoviesFromApi(data);
 };
 
 export const getOne = async (id: string): Promise<MovieDetails> => {

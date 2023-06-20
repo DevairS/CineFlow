@@ -43,11 +43,26 @@ export type Genre = {
   name: string;
 };
 
+export type MoviesInfosFromApi = {
+  page: number;
+  total_pages: number;
+  total_results: number;
+};
+
 export type MoviesInfos = {
   page: number;
   totalPages: number;
   totalResults: number;
 };
+
+export interface PaginationMovieFromApi extends MoviesInfosFromApi {
+  results: MovieFromApi[];
+}
+
+export interface PaginationMovie extends MoviesInfos {
+  apiPage: number;
+  movies: Movie[];
+}
 
 export interface ProductionCompany {
   id: number;

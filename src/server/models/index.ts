@@ -8,5 +8,7 @@ export type {
   MovieDetailsFromApi,
   MovieDetails,
   VideoFromApi,
+  PaginationMovie,
+  PaginationMovieFromApi,
 } from './movies/movies.model';
 export const moviesMappers = new MoviesMappers();

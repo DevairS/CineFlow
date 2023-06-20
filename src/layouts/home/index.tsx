@@ -1,17 +1,24 @@
 import styles from './styles.module.css';
 import Link from 'next/link';
-import { Genre, Movie, MoviesInfos } from '@server/models';
+import { Genre, Movie } from '@server/models';
 import { MovieCard, SearchMovies } from '@components';
 import Pagination from './pagination';
 
 interface Props {
   movies: Movie[];
   genres: Genre[];
-  infos: MoviesInfos;
   query?: string;
+  totalPages: number;
+  page: number;
 }
 
-export default function HomePage({ movies, genres, infos, query }: Props) {
+export default function HomePage({
+  movies,
+  genres,
+  totalPages,
+  query,
+  page,
+}: Props) {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['wrapper-content']}>
@@ -34,7 +41,7 @@ export default function HomePage({ movies, genres, infos, query }: Props) {
             </Link>
           ))}
         </div>
-        <Pagination infos={infos} query={query} />
+        <Pagination totalPages={totalPages} query={query} page={page} />
       </div>
     </div>
   );

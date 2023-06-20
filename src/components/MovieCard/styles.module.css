@@ -35,7 +35,7 @@
 
 .wrapper-details-content {
   position: relative;
-  top: 25px;
+  top: 24px;
   display: flex;
   flex-direction: column;
 }
@@ -43,7 +43,7 @@
 .details-title {
   color: var(--color-secondary);
   font-size: 2rem;
-  line-height: 35px;
+  line-height: 36px;
 }
 
 .details-release-date {
@@ -57,7 +57,7 @@
   padding: 0 16px;
   background-color: var(--color-surface);
   height: 75%;
-  padding-top: 30px;
+  padding-top: 48px;
 }
 
 .details-description {
@@ -66,6 +66,6 @@
 
 .details-vote {
   position: relative;
-  top: 30px;
+  top: 32px;
   margin: 0 12px;
 }

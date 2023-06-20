@@ -6,12 +6,13 @@ export async function GET(request: Request) {
   const page = searchParams.get('page');
   const query = searchParams.get('query');
 
+  const currentPage = page ? +page : '1';
+  const pageToRequest = +currentPage === 1 ? 1 : Math.ceil(+currentPage / 4);
   const defaultPath = '/movie?language=pt-BR&page=';
   const url = query
-    ? `search${defaultPath}${page}&query=${query}`
-    : `discover${defaultPath}${page}`;
+    ? `search${defaultPath}${pageToRequest || 1}&query=${query}`
+    : `discover${defaultPath}${pageToRequest || 1}`;
 
   const response = await serverApi.get(url);
-
   return NextResponse.json(response.data);
 }

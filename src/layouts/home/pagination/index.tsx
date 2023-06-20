@@ -1,18 +1,16 @@
 import styles from './styles.module.css';
 import { FC } from 'react';
 import Link from 'next/link';
-import { MoviesInfos } from '@server/models';
 
 type Props = {
-  infos: MoviesInfos;
   query?: string;
+  totalPages: number;
+  page: number;
 };
 
-const Pagination: FC<Props> = ({ infos, query }) => {
+const Pagination: FC<Props> = ({ totalPages, query, page: currentPage }) => {
   const pages = [];
   const numPagesNavigation = 5;
-  const currentPage = infos.page;
-  const totalPages = infos.totalPages;
 
   let pageStart = Math.max(1, currentPage - 2);
   const pageEnd = Math.min(pageStart + numPagesNavigation - 1, totalPages);
@@ -24,7 +22,6 @@ const Pagination: FC<Props> = ({ infos, query }) => {
   for (let i = pageStart; i <= pageEnd; i++) {
     pages.push(i);
   }
-
   return (
     <div className={styles['wrapper-pagination']}>
       {pages.map((page) => (
